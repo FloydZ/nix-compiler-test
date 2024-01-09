@@ -16,13 +16,18 @@ let
     #clang12 = overrideCC stdenv clang_12;
     #clang13 = overrideCC stdenv clang_13;
     #clang14 = overrideCC stdenv clang_14;
-    clang15 = overrideCC stdenv clang_15;
+    #clang15 = overrideCC stdenv clang_15;
     #clang16 = overrideCC stdenv clang_16;
   };
 
-  flags4 = pkgs.lib.strings.splitString "," "-g,-O3,-O2,-march=native,"; 
-  flags2 = builtins.listToAttrs ( map ( v: { name = v; value = v;  } ) flags4 );
-  flags3 = { 
+  # pass the flags as a string, comma separated
+  flags_string1 = pkgs.lib.strings.splitString "," "-g,-O3,-O2,-mavx";
+  # compute the power set.
+  flags_string = pkgs.lib.lists.foldr (x: acc: acc ++ map (y: x + " " + y) acc ) [""] flags_string1;
+  flags = builtins.listToAttrs ( map ( v: { name = v; value = v;  } ) flags_string );
+
+  # simply pass the flags as a dict.
+  org_flags = { 
     a="-g";
     b="-O2";
     c="-O3 -march=native";
@@ -40,7 +45,7 @@ let
 
   overrides = [
     (f "stdenv" compilers)
-    (f "flags" flags2)
+    (f "flags" flags)
   ];
 in
   pkgs.lib.foldl (a: b: a // { "${b.name}" = b; }) {} (
