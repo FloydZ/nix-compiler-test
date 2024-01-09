@@ -3,21 +3,21 @@
 let
   compilers = with pkgs; {
     gcc7 = overrideCC stdenv gcc7;
-    #gcc8 = overrideCC stdenv gcc8;
-    #gcc9 = overrideCC stdenv gcc9;
-    #gcc10 = overrideCC stdenv gcc10;
-    #gcc11 = overrideCC stdenv gcc11;
-    #gcc12 = overrideCC stdenv gcc12;
-    #clang6 = overrideCC stdenv clang_6;
-    #clang7 = overrideCC stdenv clang_7;
-    #clang8 = overrideCC stdenv clang_8;
-    #clang9 = overrideCC stdenv clang_9;
-    #clang10 = overrideCC stdenv clang_10;
-    #clang12 = overrideCC stdenv clang_12;
-    #clang13 = overrideCC stdenv clang_13;
-    #clang14 = overrideCC stdenv clang_14;
-    #clang15 = overrideCC stdenv clang_15;
-    #clang16 = overrideCC stdenv clang_16;
+    gcc8 = overrideCC stdenv gcc8;
+    gcc9 = overrideCC stdenv gcc9;
+    gcc10 = overrideCC stdenv gcc10;
+    gcc11 = overrideCC stdenv gcc11;
+    gcc12 = overrideCC stdenv gcc12;
+    clang6 = overrideCC stdenv clang_6;
+    clang7 = overrideCC stdenv clang_7;
+    clang8 = overrideCC stdenv clang_8;
+    clang9 = overrideCC stdenv clang_9;
+    clang10 = overrideCC stdenv clang_10;
+    clang12 = overrideCC stdenv clang_12;
+    clang13 = overrideCC stdenv clang_13;
+    clang14 = overrideCC stdenv clang_14;
+    clang15 = overrideCC stdenv clang_15;
+    clang16 = overrideCC stdenv clang_16;
   };
 
   # pass the flags as a string, comma separated
