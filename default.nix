@@ -8,8 +8,8 @@ let
     gcc10 = overrideCC stdenv gcc10;
     gcc11 = overrideCC stdenv gcc11;
     gcc12 = overrideCC stdenv gcc12;
-    clang6 = overrideCC stdenv clang_6;
-    clang7 = overrideCC stdenv clang_7;
+    # clang6 = overrideCC stdenv clang_6;
+    # clang7 = overrideCC stdenv clang_7;
     clang8 = overrideCC stdenv clang_8;
     clang9 = overrideCC stdenv clang_9;
     clang10 = overrideCC stdenv clang_10;
